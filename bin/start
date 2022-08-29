@@ -1,0 +1,31 @@
+#!/bin/bash
+
+set -o errexit
+set -o pipefail
+set -o nounset
+
+dir="$( cd "$(dirname "$( dirname "${BASH_SOURCE[0]}" )" )" >/dev/null 2>&1 && pwd )"
+mkdir -p "$dir/dist"
+
+stop_containers() {
+  echo "Shutting off containers..."
+  echo
+  cd $dir
+  docker compose stop
+  echo
+  echo "All done!"
+}
+
+trap stop_containers SIGINT
+
+echo "Starting containers..."
+echo
+cd $dir
+docker compose up -d
+echo
+
+echo "Starting asset watcher ..."
+echo
+cd $dir
+npm install
+npm start
