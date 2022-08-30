@@ -12,7 +12,8 @@ class PhragmitesBlocks {
 			'title' => 'Intro',
 			'description' => 'Splash image with menu',
 			'icon' => 'cover-image',
-			'render_callback' => [$this, 'render_intro']
+			'render_callback' => [$this, 'render_intro'],
+			'mode' => 'auto'
 		]);
 	}
 
@@ -33,7 +34,7 @@ class PhragmitesBlocks {
 		}
 		$menu .= "</ul>";
 
-		echo "<div class=\"intro-block\" $style><div class=\"container\">$title$menu</div></div>";
+		echo "<div class=\"intro-block {$block['className']}\" $style><div class=\"container\">$title$menu</div></div>";
 	}
 
 }

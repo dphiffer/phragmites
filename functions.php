@@ -60,7 +60,12 @@ class Phragmites {
 	function setup_styles() {
 		add_action('wp_enqueue_scripts', function() {
 			$this->enqueue_style('source-sans', 'source-sans/source-sans-3.css');
-			$this->enqueue_style('phragmites', 'main.css', ['source-sans']);
+			$this->enqueue_style('main', 'main.css', ['source-sans']);
+			$this->enqueue_style('blocks', 'blocks.css', ['source-sans']);
+		});
+		add_action('admin_enqueue_scripts', function() {
+			$this->enqueue_style('source-sans', 'source-sans/source-sans-3.css');
+			$this->enqueue_style('blocks', 'blocks.css', ['source-sans']);
 		});
 	}
 

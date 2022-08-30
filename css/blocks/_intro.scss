@@ -1,4 +1,4 @@
-@use 'variables' as *;
+@use '../variables' as *;
 
 .intro-block {
 	position: relative;
@@ -12,6 +12,10 @@
 	line-height: 2;
 	font-size: 16px;
 
+	.block-editor & {
+		min-height: 600px;
+	}
+
 	.container {
 		position: absolute;
 		left: 20vw;
@@ -19,11 +23,22 @@
 	}
 
 	h1 {
+		font-size: 16px;
 		display: inline-block;
 		color: #fff;
 		background: rgba(252, 84, 56, 0.75);
 		margin-bottom: 30px;
 		padding: 0 10px;
+	}
+
+	li {
+		margin: 0;
+		list-style: none;
+	}
+
+	ul {
+		margin: 0;
+		padding: 0;
 	}
 
 	a {

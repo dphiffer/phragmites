@@ -6,7 +6,7 @@
   "scripts": {
     "dist:mkdir": "mkdir -p dist",
     "dist:fonts": "cp -r node_modules/source-sans dist/",
-    "dist:build": "sass css/main.scss:dist/main.css",
+    "dist:build": "sass css/main.scss:dist/main.css css/blocks.scss:dist/blocks.css",
     "dist:watch": "sass --watch css:dist",
     "start": "npm-run-all dist:*",
     "build": "npm-run-all dist:mkdir dist:fonts dist:build"
