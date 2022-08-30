@@ -1,0 +1,47 @@
+@use 'variables' as *;
+
+.intro-block {
+	position: relative;
+	background-size: cover;
+	min-height: calc(100vh - 3px);
+	width: 100%;
+	border-top: 3px solid #fc5438;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	line-height: 2;
+	font-size: 16px;
+
+	.container {
+		position: absolute;
+		left: 20vw;
+		top: 20vh;
+	}
+
+	h1 {
+		display: inline-block;
+		color: #fff;
+		background: rgba(252, 84, 56, 0.75);
+		margin-bottom: 30px;
+		padding: 0 10px;
+	}
+
+	a {
+		font-family: $ff-source;
+		display: inline-block;
+		color: #FC5438;
+		background: rgba(255, 255, 255, 0.75);
+		transition: 0.2s color ease-out;
+		padding: 0 10px;
+		margin-bottom: 3px;
+		text-decoration: none;
+
+		&:hover {
+			color: #000;
+		}
+	}
+
+	.container {
+		padding: 20px;
+	}
+}
