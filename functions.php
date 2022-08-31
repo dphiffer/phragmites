@@ -17,6 +17,7 @@ class Phragmites {
 		$this->setup_acf();
 		$this->setup_styles();
 		$this->setup_blocks();
+		$this->setup_image_sizes();
 	}
 
 	function setup_theme_supports() {
@@ -37,6 +38,9 @@ class Phragmites {
 				'hierarchical' => true,
 				'show_in_rest' => true,
 				'menu_icon' => 'dashicons-images-alt2',
+				'rewrite' => [
+					'slug' => 'projects'
+				],
 				'supports' => [
 					'title',
 					'editor',
@@ -71,6 +75,40 @@ class Phragmites {
 
 	function setup_blocks() {
 		$this->blocks = new PhragmitesBlocks();
+	}
+
+	function setup_image_sizes() {
+		add_action('after_setup_theme', function() {
+			$base_sizes = ['thumbnail', 'medium', 'large'];
+			$sizes = [
+				'thumbnail' => [316, 195, 1],
+				'thumbnail_2x' => [632, 390, 1],
+				'medium' => [482, 0, 0],
+				'medium_2x' => [964, 0, 0],
+				'large' => [648, 0, 0],
+				'large_2x' => [1296, 0, 0],
+				'xl' => [980, 0, 0],
+				'xl_2x' => [1960, 0, 0],
+				'xxl' => [1280, 0, 0],
+				'xxl_2x' => [2560, 0, 0]
+			];
+			foreach ($sizes as $name => $dimensions) {
+				list($width, $height, $crop) = $dimensions;
+				if (in_array($name, $base_sizes)) {
+					if (get_option("{$name}_size_w") != $width) {
+						update_option("{$name}_size_w", $width);
+					}
+					if (get_option("{$name}_size_h") != $height) {
+						update_option("{$name}_size_h", $height);
+					}
+					if (get_option("{$name}_crop") != $crop) {
+						update_option("{$name}_crop", $crop);
+					}
+				} else {
+					add_image_size($name, $width, $height, $crop);
+				}
+			}
+		});
 	}
 
 	function enqueue_style($handle, $file, $deps = []) {
