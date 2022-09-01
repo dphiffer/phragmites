@@ -38,6 +38,7 @@ class Phragmites {
 				'hierarchical' => true,
 				'show_in_rest' => true,
 				'menu_icon' => 'dashicons-images-alt2',
+				'has_archive' => true,
 				'rewrite' => [
 					'slug' => 'projects'
 				],
@@ -117,6 +118,24 @@ class Phragmites {
 		wp_enqueue_style($handle, $url, $deps, $version);
 	}
 
+	function get_breadcrumbs($pages) {
+		$links = '';
+
+		foreach ($pages as $label => $href) {
+			if (empty($links)) {
+				$links .= "<h2><a href=\"$href\">$label</a></h2>";
+			} else {
+				$links .= " / <a href=\"$href\">$label</a>";
+			}
+		}
+
+		return <<<END
+			<div class="breadcrumbs">
+				$links
+			</div>
+END;
+	}
+
 }
 
-new Phragmites();
+$phragmites = new Phragmites();

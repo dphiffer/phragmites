@@ -6,4 +6,18 @@ body, input, select, textarea {
 
 h1, h2, h3, h4, h5, h6 {
 	font-family: $ff-source;
+	font-weight: 600;
+}
+
+h1 {
+	font-size: 24px;
+}
+
+a {
+	color: #FC5438;
+	transition: 0.2s color ease-out;
+
+	&:hover {
+		color: #000;
+	}
 }
