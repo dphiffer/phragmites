@@ -55,7 +55,7 @@ END;
 	}
 
 	function render_projects($block, $content = '', $is_preview = false, $post_id = 0) {
-		echo get_template_part('archive', 'project');
+		echo get_template_part('blocks/projects');
 	}
 
 	function get_class($block) {
