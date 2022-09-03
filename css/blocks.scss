@@ -1,2 +1,11 @@
+@use 'variables' as *;
+
 @import 'blocks/intro';
 @import 'blocks/projects';
+@import 'blocks/image';
+
+.editor-styles-wrapper {
+	font-family: $ff-system;
+	font-size: 18px;
+	line-height: 1.7;
+}

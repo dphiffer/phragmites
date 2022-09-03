@@ -13,7 +13,8 @@ $project_list = get_posts([
 	'post_type' => 'project',
 	'orderby' => 'menu_order',
 	'order' => 'ASC',
-	'posts_per_page' => -1
+	'posts_per_page' => -1,
+	'post_parent' => 0
 ]);
 
 $projects = '<ul>';
@@ -45,8 +46,8 @@ $projects .= '</ul>';
 
 ?>
 <section id="projects" class="projects-block">
+	<?php echo $breadcrumbs; ?>
 	<div class="container">
-		<?php echo $breadcrumbs; ?>
 		<?php echo $projects; ?>
 	</div>
 </section>

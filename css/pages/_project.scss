@@ -1,0 +1,18 @@
+@use '../variables' as *;
+
+.project {
+	@include section-block;
+
+	.container {
+		margin: 0 auto;
+		padding: 60px 15px;
+		max-width: 1000px;
+	}
+
+	.content {
+		font-family: $ff-system;
+		font-size: 18px;
+		line-height: 30px;
+		max-width: 720px;
+	}
+}

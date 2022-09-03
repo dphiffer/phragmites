@@ -9,6 +9,14 @@ h1, h2, h3, h4, h5, h6 {
 	font-weight: 600;
 }
 
+p {
+	margin-top: 1.5em;
+
+	&:first-child {
+		margin-top: 0;
+	}
+}
+
 h1 {
 	font-size: 24px;
 }
@@ -19,5 +27,15 @@ a {
 
 	&:hover {
 		color: #000;
+	}
+}
+
+.content {
+	i, em {
+		font-style: italic;
+	}
+
+	b, strong {
+		font-weight: bold;
 	}
 }

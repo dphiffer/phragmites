@@ -24,6 +24,11 @@ class Phragmites {
 		add_action('after_setup_theme', function() {
 			add_theme_support('title-tag');
 			add_theme_support('post-thumbnails');
+			add_theme_support('editor-color-palette', []);
+			add_theme_support('disable-custom-colors');
+			add_theme_support('editor-font-sizes', []);
+			add_theme_support('disable-custom-font-sizes');
+			add_theme_support('align-wide');
 		});
 	}
 
@@ -37,7 +42,8 @@ class Phragmites {
 				'public' => true,
 				'hierarchical' => true,
 				'show_in_rest' => true,
-				'menu_icon' => 'dashicons-images-alt2',
+				'menu_position' => 4,
+				'menu_icon' => 'dashicons-format-image',
 				'has_archive' => true,
 				'rewrite' => [
 					'slug' => 'projects'
@@ -50,6 +56,40 @@ class Phragmites {
 					'page-attributes'
 				]
 			]);
+
+			register_post_type('video', [
+				'labels' => [
+					'name' => 'Videos',
+					'singular_name' => 'Video'
+				],
+				'public' => true,
+				'hierarchical' => true,
+				'show_in_rest' => true,
+				'menu_position' => 4,
+				'menu_icon' => 'dashicons-format-video',
+				'has_archive' => true,
+				'rewrite' => [
+					'slug' => 'videos'
+				],
+				'supports' => [
+					'title',
+					'editor',
+					'thumbnail',
+					'revisions',
+					'page-attributes'
+				]
+			]);
+		});
+
+		// Remove Posts & Comments from WordPress admin
+		add_action('admin_menu', function() {
+			remove_menu_page('edit.php');
+			remove_menu_page('edit-comments.php');
+		});
+
+		add_action('wp_before_admin_bar_render', function() {
+			global $wp_admin_bar;
+			$wp_admin_bar->remove_menu('comments');
 		});
 	}
 
@@ -82,16 +122,14 @@ class Phragmites {
 		add_action('after_setup_theme', function() {
 			$base_sizes = ['thumbnail', 'medium', 'large'];
 			$sizes = [
-				'thumbnail' => [316, 195, 1],
-				'thumbnail_2x' => [632, 390, 1],
-				'medium' => [482, 0, 0],
-				'medium_2x' => [964, 0, 0],
-				'large' => [648, 0, 0],
-				'large_2x' => [1296, 0, 0],
-				'xl' => [980, 0, 0],
-				'xl_2x' => [1960, 0, 0],
-				'xxl' => [1280, 0, 0],
-				'xxl_2x' => [2560, 0, 0]
+				'thumbnail' => [285, 176, 1],
+				'thumbnail_2x' => [570, 352, 1],
+				'medium' => [720, 0, 0],
+				'medium_2x' => [1440, 0, 0],
+				'large' => [1000, 0, 0],
+				'large_2x' => [2000, 0, 0],
+				'xl' => [2000, 0, 0],
+				'xl_2x' => [4000, 0, 0]
 			];
 			foreach ($sizes as $name => $dimensions) {
 				list($width, $height, $crop) = $dimensions;

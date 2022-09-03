@@ -93,20 +93,26 @@
 		}
 	}
 
-	.block-editor & li {
-		width: calc(33% - 10px);
-		margin-right: 15px;
-
-		&:nth-child(2n) {
-			margin-right: 15px;
+	.block-editor & {
+		ul {
+			margin-top: 0;
 		}
 
-		&:nth-child(4n) {
+		li {
+			width: calc(33% - 10px);
 			margin-right: 15px;
-		}
 
-		&:nth-child(3n) {
-			margin-right: 0;
+			&:nth-child(2n) {
+				margin-right: 15px;
+			}
+
+			&:nth-child(4n) {
+				margin-right: 15px;
+			}
+
+			&:nth-child(3n) {
+				margin-right: 0;
+			}
 		}
 	}
 }

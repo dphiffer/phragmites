@@ -1,3 +1,5 @@
+@use 'variables' as *;
+
 @mixin section-block {
 	width: 100%;
 	min-height: calc(100vh - 3px);
@@ -18,10 +20,13 @@
 	}
 
 	.breadcrumbs {
-		font-size: 15px;
+		font-family: $ff-source;
+		font-size: 16px;
+		line-height: 1.2;
 		letter-spacing: 0.05em;
 		text-transform: uppercase;
 		color: #808080;
+		padding: 15px;
 
 		a {
 			text-decoration: none;
@@ -35,7 +40,7 @@
 		}
 
 		h2 {
-			font-size: 15px;
+			font-size: 16px;
 			font-weight: 600;
 			display: inline-block;
 			margin: 0;
@@ -50,9 +55,9 @@
 @mixin breakpoint($size) {
 	$breakpoints: (
 		sm: 376px,
-		md: 769px,
-		lg: 992px,
-		xl: 1200px
+		md: 751px,
+		lg: 1001px,
+		xl: 1231px
 	);
 
 	@if map-has-key($breakpoints, $size) {
