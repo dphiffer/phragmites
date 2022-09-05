@@ -3,6 +3,8 @@
 
 .intro-block {
 	@include section-block;
+	@include full-height;
+
 	position: relative;
 	background-size: cover;
 	font-weight: 600;

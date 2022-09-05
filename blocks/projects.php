@@ -2,19 +2,24 @@
 
 global $phragmites;
 
-$site_title = get_bloginfo('name');
+if (! empty($args['breadcrumbs'])) {
+	$breadcrumbs = $args['breadcrumbs'];
+} else {
+	$site_title = get_bloginfo('name');
+	$breadcrumbs = $phragmites->get_breadcrumbs([
+		'Projects' => '/projects',
+		$site_title => '/'
+	]);
+}
 
-$breadcrumbs = $phragmites->get_breadcrumbs([
-	'Projects' => '/projects',
-	$site_title => '/'
-]);
+$post_parent = empty($args['post_parent']) ? 0 : $args['post_parent'];
 
 $project_list = get_posts([
 	'post_type' => 'project',
 	'orderby' => 'menu_order',
 	'order' => 'ASC',
 	'posts_per_page' => -1,
-	'post_parent' => 0
+	'post_parent' => $post_parent
 ]);
 
 $projects = '<ul>';

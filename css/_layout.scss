@@ -1,10 +1,7 @@
 @use 'variables' as *;
 
-@mixin section-block {
-	width: 100%;
+@mixin full-height {
 	min-height: calc(100vh - 3px);
-	border-top: 3px solid #fc5438;
-	background: #ffe;
 
 	body.admin-bar & {
 		min-height: calc(100vh - 32px);
@@ -18,6 +15,12 @@
 	body.admin-bar .block-editor & {
 		min-height: 600px;
 	}
+}
+
+@mixin section-block {
+	width: 100%;
+	border-top: 3px solid #fc5438;
+	background: #ffe;
 
 	.breadcrumbs {
 		font-family: $ff-source;

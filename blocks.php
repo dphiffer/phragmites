@@ -4,6 +4,7 @@ class PhragmitesBlocks {
 
 	function __construct() {
 		$this->register_blocks();
+		$this->setup_embeds();
 	}
 
 	function register_blocks() {
@@ -23,6 +24,15 @@ class PhragmitesBlocks {
 			'render_callback' => [$this, 'render_projects'],
 			'mode' => 'auto'
 		]);
+	}
+
+	function setup_embeds() {
+		add_filter('embed_defaults', function() {
+			return [
+				'width' => 720,
+				'height' => 405
+			];
+		});
 	}
 
 	function render_intro($block, $content = '', $is_preview = false, $post_id = 0) {
@@ -55,7 +65,26 @@ END;
 	}
 
 	function render_projects($block, $content = '', $is_preview = false, $post_id = 0) {
-		echo get_template_part('blocks/projects');
+		global $phragmites;
+		$args = [];
+		$post = get_post($post_id);
+		$title = get_field('title');
+		if ($post->post_type == 'project') {
+			$project_title = get_the_title($post_id);
+			$url = get_permalink($post_id);
+			$args['breadcrumbs'] = $phragmites->get_breadcrumbs([
+				$title => "#projects",
+				$project_title => $url
+			]);
+			$args['post_parent'] = $post_id;
+		} else {
+			$site_title = get_bloginfo('name');
+			$breadcrumbs = $phragmites->get_breadcrumbs([
+				$title => '/projects',
+				$site_title => '/'
+			]);
+		}
+		echo get_template_part('blocks/projects', null, $args);
 	}
 
 	function get_class($block) {

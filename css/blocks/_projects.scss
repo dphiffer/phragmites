@@ -115,4 +115,19 @@
 			}
 		}
 	}
+
+	.content & {
+		border-bottom: 3px solid #fc5438;
+		width: calc(100vw - 30px);
+		max-width: 970px;
+
+		.breadcrumbs, .container {
+			padding-left: 0;
+			padding-right: 0;
+		}
+
+		ul {
+			margin-top: 10px;
+		}
+	}
 }
