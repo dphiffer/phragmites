@@ -8,11 +8,16 @@
 	&.alignleft,
 	&.alignright {
 		width: 50%;
-		margin-right: 1.5em;
 		transform: translateY(8px);
+
+		&:first-child {
+			margin-top: 0;
+		}
 	}
 
 	&.alignleft {
+		margin-right: 1.5em;
+
 		@include breakpoint(sm) {
 			float: left;
 		}
@@ -23,6 +28,8 @@
 	}
 
 	&.alignright {
+		margin-left: 1.5em;
+
 		@include breakpoint(sm) {
 			float: right;
 		}

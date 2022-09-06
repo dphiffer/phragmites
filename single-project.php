@@ -14,7 +14,7 @@ $breadcrumbs['Projects'] = '/projects';
 $breadcrumbs[get_bloginfo('name')] = '/';
 
 ?>
-<section class="project">
+<section class="project <?php echo @$project_class; ?>">
 	<?php echo $phragmites->get_breadcrumbs($breadcrumbs); ?>
 	<div class="container">
 		<div class="content">

@@ -21,6 +21,11 @@ h1 {
 	font-size: 24px;
 }
 
+h3 {
+	margin-top: 1.5em;
+	margin-bottom: -0.5em;
+}
+
 a {
 	color: #FC5438;
 	transition: 0.2s color ease-out;
@@ -28,6 +33,20 @@ a {
 	&:hover {
 		color: #000;
 	}
+}
+
+ul, ol {
+	margin-top: 1em;
+}
+
+ul > li {
+	list-style: square;
+	margin-left: 1.5em;
+}
+
+ol > li {
+	list-style: decimal;
+	margin-left: 2em;
 }
 
 .content {
