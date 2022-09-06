@@ -24,6 +24,14 @@ class PhragmitesBlocks {
 			'render_callback' => [$this, 'render_projects'],
 			'mode' => 'auto'
 		]);
+		acf_register_block_type([
+			'name' => 'scrolly-image',
+			'title' => 'Scrolly Image',
+			'description' => 'Image sequence via scrolling',
+			'icon' => 'images-alt2',
+			'render_callback' => [$this, 'render_scrolly_image'],
+			'mode' => 'auto'
+		]);
 	}
 
 	function setup_embeds() {
@@ -85,6 +93,10 @@ END;
 			]);
 		}
 		echo get_template_part('blocks/projects', null, $args);
+	}
+
+	function render_scrolly_image($block, $content = '', $is_preview = false, $post_id = 0) {
+		echo 'hi';
 	}
 
 	function get_class($block) {
