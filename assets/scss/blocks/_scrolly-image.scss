@@ -1,0 +1,16 @@
+.scrolly-image-block {
+
+	img {
+		position: sticky;
+		top: 0;
+		margin-left: -100px;
+		width: auto;
+		height: 90vh;
+	}
+
+	.caption {
+		width: 360px;
+		margin-left: 420px;
+		transform: translateY(100px);
+	}
+}

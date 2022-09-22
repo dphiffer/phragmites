@@ -96,7 +96,20 @@ END;
 	}
 
 	function render_scrolly_image($block, $content = '', $is_preview = false, $post_id = 0) {
-		echo 'hi';
+		$images = get_field('images');
+		$html = '<section class="scrolly-image-block">';
+		$html .= '<div class="scrolly-image-block__images">';
+		$text = [];
+		foreach ($images as $index => $item) {
+			$html .= wp_get_attachment_image($item['image'], 'xl', false, [
+				'class' => "scrolly-image-block__image scrolly-image-block__image--$index"
+			]);
+			$text[] = "<div class=\"scrolly-image-block__step\">{$item['caption']}</div>";
+		}
+		$html .= '</div>';
+		$html .= "<div class=\"scrolly-image-block__captions\">$text</div>";
+		$html .= '</section>';
+		echo $html;
 	}
 
 	function get_class($block) {
