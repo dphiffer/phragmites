@@ -23,6 +23,12 @@ cd $dir
 docker compose up -d
 echo
 
+echo "Updating composer packages..."
+echo
+cd $dir
+docker compose exec web composer --working-dir="/var/www/html/wp-content/themes/phragmites" update
+echo
+
 echo "Starting asset watcher ..."
 echo
 cd $dir
