@@ -16,6 +16,7 @@ class Phragmites {
 		$this->setup_post_types();
 		$this->setup_acf();
 		$this->setup_styles();
+		$this->setup_scripts();
 		$this->setup_blocks();
 		$this->setup_image_sizes();
 	}
@@ -114,6 +115,13 @@ class Phragmites {
 		});
 	}
 
+	function setup_scripts() {
+		add_action('wp_enqueue_scripts', function() {
+			$this->enqueue_script('scrollama', 'scrollama.min.js');
+			$this->enqueue_script('main', 'main.js', ['scrollama']);
+		});
+	}
+
 	function setup_blocks() {
 		$this->blocks = new PhragmitesBlocks();
 	}
@@ -154,6 +162,12 @@ class Phragmites {
 		$version = filemtime("$this->dir/dist/$file");
 		$url = "$this->url/dist/$file";
 		wp_enqueue_style($handle, $url, $deps, $version);
+	}
+
+	function enqueue_script($handle, $file, $deps = []) {
+		$version = filemtime("$this->dir/dist/$file");
+		$url = "$this->url/dist/$file";
+		wp_enqueue_script($handle, $url, $deps, $version);
 	}
 
 	function get_breadcrumbs($pages) {

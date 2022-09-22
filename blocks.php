@@ -96,7 +96,28 @@ END;
 	}
 
 	function render_scrolly_image($block, $content = '', $is_preview = false, $post_id = 0) {
-		echo 'hi';
+
+		$class = $this->get_class($block);
+		$image_list = get_field('images');
+		$images = '';
+		$captions = '';
+
+		foreach ($image_list as $index => $item) {
+			list($image_url) = wp_get_attachment_image_src($item['image_id'], 'xl');
+			$images .= "<img src=\"$image_url\" class=\"image-$index\">\n";
+			$captions .= "<div class=\"caption caption-$index\">{$item['caption']}</div>\n";
+		}
+
+		echo <<<END
+		<section class="$class">
+			<div class="scrolly-image">
+				$images
+			</div>
+			<div class="scrolly-caption">
+				$captions
+			</div>
+		</section>
+END;
 	}
 
 	function get_class($block) {
