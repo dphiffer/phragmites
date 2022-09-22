@@ -5,11 +5,13 @@
   "main": "index.js",
   "scripts": {
     "dist:mkdir": "mkdir -p dist",
-    "dist:fonts": "cp -r node_modules/source-sans dist/",
-    "dist:build": "sass css/main.scss:dist/main.css css/blocks.scss:dist/blocks.css",
-    "dist:watch": "sass --watch css:dist",
-    "start": "npm-run-all dist:*",
-    "build": "npm-run-all dist:mkdir dist:fonts dist:build"
+    "dist:source-sans": "cp -r node_modules/source-sans dist/",
+    "dist:scrollama": "cp node_modules/scrollama/build/scrollama.min.js dist/",
+    "dist:main-js": "cp js/main.js dist/",
+    "sass:build": "sass css/main.scss:dist/main.css css/blocks.scss:dist/blocks.css",
+    "sass:watch": "sass --watch css:dist",
+    "start": "npm-run-all dist:* sass:build sass:watch",
+    "build": "npm-run-all dist:* sass:build"
   },
   "repository": {
     "type": "git",
@@ -31,6 +33,7 @@
     "sass": "^1.54.5"
   },
   "dependencies": {
+    "scrollama": "^3.2.0",
     "source-sans": "^3.46.0"
   }
 }
