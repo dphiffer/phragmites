@@ -9,14 +9,6 @@ h1, h2, h3, h4, h5, h6 {
 	font-weight: 600;
 }
 
-p {
-	margin-top: 1.5em;
-
-	&:first-child {
-		margin-top: 0;
-	}
-}
-
 h1 {
 	font-size: 24px;
 }
@@ -57,5 +49,22 @@ a {
 
 	b, strong {
 		font-weight: bold;
+	}
+
+	p {
+		margin-top: 1.5em;
+
+		&:first-child {
+			margin-top: 0;
+		}
+	}
+
+	blockquote {
+		margin-top: 1.5em;
+		padding-left: 30px;
+	}
+
+	.wp-block-embed:first-child {
+		margin-top: 0;
 	}
 }

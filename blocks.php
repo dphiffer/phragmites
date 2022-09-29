@@ -28,6 +28,14 @@ class PhragmitesBlocks {
 			'mode' => 'auto'
 		]);
 		acf_register_block_type([
+			'name' => 'videos',
+			'title' => 'Videos',
+			'description' => 'List of video posts',
+			'icon' => 'format-video',
+			'render_callback' => [$this, 'render_videos'],
+			'mode' => 'auto'
+		]);
+		acf_register_block_type([
 			'name' => 'scrolly-image',
 			'title' => 'Scrolly Image',
 			'description' => 'Image sequence via scrolling',
@@ -96,6 +104,29 @@ END;
 			]);
 		}
 		echo get_template_part('blocks/projects', null, $args);
+	}
+
+	function render_videos($block, $content = '', $is_preview = false, $post_id = 0) {
+		global $phragmites;
+		$args = [];
+		$post = get_post($post_id);
+		$title = get_field('title');
+		if ($post->post_type == 'video') {
+			$project_title = get_the_title($post_id);
+			$url = get_permalink($post_id);
+			$args['breadcrumbs'] = $phragmites->get_breadcrumbs([
+				$title => "#videos",
+				$project_title => $url
+			]);
+			$args['post_parent'] = $post_id;
+		} else {
+			$site_title = get_bloginfo('name');
+			$breadcrumbs = $phragmites->get_breadcrumbs([
+				$title => '/videos',
+				$site_title => '/'
+			]);
+		}
+		echo get_template_part('blocks/videos', null, $args);
 	}
 
 	function render_scrolly_image($block, $content = '', $is_preview = false, $post_id = 0) {
