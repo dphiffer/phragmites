@@ -29,6 +29,10 @@ a {
 }
 
 .content {
+	li {
+		margin-bottom: 0.5em;
+	}
+
 	> ul, ol {
 		margin-top: 1em;
 	}

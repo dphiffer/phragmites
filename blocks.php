@@ -36,6 +36,14 @@ class PhragmitesBlocks {
 			'mode' => 'auto'
 		]);
 		acf_register_block_type([
+			'name' => 'subpage',
+			'title' => 'Subpage',
+			'description' => 'Include page content',
+			'icon' => 'admin-page',
+			'render_callback' => [$this, 'render_subpage'],
+			'mode' => 'auto'
+		]);
+		acf_register_block_type([
 			'name' => 'scrolly-image',
 			'title' => 'Scrolly Image',
 			'description' => 'Image sequence via scrolling',
@@ -151,6 +159,30 @@ END;
 			</div>
 			<div class="scrolly-caption">
 				$captions
+			</div>
+		</section>
+END;
+	}
+
+	function render_subpage($block, $content = '', $is_preview = false, $post_id = 0) {
+		global $phragmites;
+		$class = $this->get_class($block);
+		$post = get_field('subpage');
+		$subpage_title = $post->post_title;
+		$slug = $post->post_name;
+		$site_title = get_bloginfo('name');
+		$content = apply_filters('the_content', $post->post_content);
+		$breadcrumbs = $phragmites->get_breadcrumbs([
+			$subpage_title => "#$slug",
+			$site_title => '/'
+		]);
+		echo <<<END
+		<section id="$slug" class="$class">
+			$breadcrumbs
+			<div class="container">
+				<div class="content">
+					$content
+				</div>
 			</div>
 		</section>
 END;
