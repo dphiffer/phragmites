@@ -7,10 +7,9 @@
     "dist:mkdir": "mkdir -p dist",
     "dist:source-sans": "cp -r node_modules/source-sans dist/",
     "dist:scrollama": "cp node_modules/scrollama/build/scrollama.min.js dist/",
-    "dist:main-js": "cp js/main.js dist/",
     "sass:build": "sass css/main.scss:dist/main.css css/blocks.scss:dist/blocks.css",
     "sass:watch": "sass --watch css:dist",
-    "start": "npm-run-all dist:* sass:build sass:watch",
+    "start": "npm-run-all build sass:watch",
     "build": "npm-run-all dist:* sass:build"
   },
   "repository": {

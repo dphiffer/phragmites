@@ -8,6 +8,9 @@ class PhragmitesBlocks {
 	}
 
 	function register_blocks() {
+		if (! function_exists('acf_register_block_type')) {
+			return;
+		}
 		acf_register_block_type([
 			'name' => 'intro',
 			'title' => 'Intro',
@@ -103,15 +106,17 @@ END;
 		$captions = '';
 
 		foreach ($image_list as $index => $item) {
-			list($image_url) = wp_get_attachment_image_src($item['image_id'], 'xl');
-			$images .= "<img src=\"$image_url\" class=\"image-$index\">\n";
-			$captions .= "<div class=\"caption caption-$index\">{$item['caption']}</div>\n";
+			list($image_url) = wp_get_attachment_image_src($item['image'], 'xl');
+			$images .= "<img src=\"$image_url\" class=\"image image-$index\">\n";
+			$captions .= "<div class=\"caption caption-$index\"><div class=\"caption__inner\">{$item['caption']}</div></div>\n";
 		}
 
 		echo <<<END
 		<section class="$class">
-			<div class="scrolly-image">
-				$images
+			<div class="sticky-image">
+				<div class="sticky-image__inner">
+					$images
+				</div>
 			</div>
 			<div class="scrolly-caption">
 				$captions

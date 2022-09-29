@@ -49,8 +49,8 @@
                 },
                 {
                     "key": "field_6316b18fc9712",
-                    "label": "Content",
-                    "name": "content",
+                    "label": "Caption",
+                    "name": "caption",
                     "type": "wysiwyg",
                     "instructions": "",
                     "required": 0,
@@ -67,7 +67,8 @@
                     "media_upload": 1,
                     "parent_repeater": "field_6316b148c9710"
                 }
-            ]
+            ],
+            "rows_per_page": 20
         }
     ],
     "location": [
@@ -88,5 +89,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1662432544
+    "modified": 1663850500
 }

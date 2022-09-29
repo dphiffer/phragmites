@@ -117,8 +117,8 @@ class Phragmites {
 
 	function setup_scripts() {
 		add_action('wp_enqueue_scripts', function() {
-			$this->enqueue_script('scrollama', 'scrollama.min.js');
-			$this->enqueue_script('main', 'main.js', ['scrollama']);
+			$this->enqueue_script('scrollama', 'dist/scrollama.min.js');
+			$this->enqueue_script('main', 'js/main.js', ['scrollama']);
 		});
 	}
 
@@ -165,8 +165,8 @@ class Phragmites {
 	}
 
 	function enqueue_script($handle, $file, $deps = []) {
-		$version = filemtime("$this->dir/dist/$file");
-		$url = "$this->url/dist/$file";
+		$version = filemtime("$this->dir/$file");
+		$url = "$this->url/$file";
 		wp_enqueue_script($handle, $url, $deps, $version);
 	}
 
