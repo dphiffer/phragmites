@@ -1,0 +1,14 @@
+@use '../variables' as *;
+@use '../layout' as *;
+
+.subpage-block {
+	@include section-block;
+
+
+	.content {
+		padding: 0 0 30px 0;
+		margin: 30px auto 0 auto;
+		max-width: 648px;
+		line-height: 1.5;
+	}
+}
