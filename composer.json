@@ -12,7 +12,7 @@
       "type": "package",
       "package": {
         "name": "advanced-custom-fields/advanced-custom-fields-pro",
-        "version": "6.0.0",
+        "version": "6.0.2",
         "type": "wordpress-plugin",
         "dist": {
           "type": "zip",
@@ -27,7 +27,7 @@
   ],
   "require": {
     "composer/installers": "*",
-    "advanced-custom-fields/advanced-custom-fields-pro": "6.0.0",
+    "advanced-custom-fields/advanced-custom-fields-pro": "6.0.2",
     "wpackagist-plugin/duplicate-post": "4.5.0"
   },
   "extra": {
