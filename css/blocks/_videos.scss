@@ -23,17 +23,18 @@ body.post-type-archive-video, body.single-video {
 	}
 
 	.container {
-		padding: 40px 0 60px 0;
+		padding: 20px 0 30px 0;
 		max-width: 648px;
 		margin: 0 auto;
 
-		@include breakpoint(lg) {
-			transform: translateX(-83px);
-			max-width: 980px;
+		@include breakpoint(md) {
+			padding: 40px 0 60px 0;
 		}
 
 		@include breakpoint(lg) {
 			display: flex;
+			transform: translateX(-83px);
+			max-width: 980px;
 		}
 	}
 
