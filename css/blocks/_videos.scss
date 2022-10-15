@@ -23,17 +23,44 @@ body.post-type-archive-video, body.single-video {
 	}
 
 	.container {
-		display: flex;
-		justify-content: space-between;
 		padding: 40px 0 60px 0;
-		max-width: 980px;
+		max-width: 648px;
 		margin: 0 auto;
+
+		@include breakpoint(lg) {
+			transform: translateX(-83px);
+			max-width: 980px;
+		}
+
+		@include breakpoint(lg) {
+			display: flex;
+		}
 	}
 
 	.content {
-		width: 648px;
+		width: 100%;
+		max-width: 648px;
+		padding: 0 15px;
 		color: #ccc;
 		line-height: 1.5;
+
+		@include breakpoint(md) {
+			padding: 0;
+		}
+
+		.wp-block-embed.is-type-video {
+			margin-left: -15px;
+			margin-right: -15px;
+
+			@include breakpoint(md) {
+				margin-left: 0;
+				margin-right: 0;
+			}
+		}
+
+		.wp-block-embed.is-type-video + p {
+			margin-top: 10px;
+		}
 
 		a {
 			color: #fc0;
@@ -41,17 +68,54 @@ body.post-type-archive-video, body.single-video {
 	}
 
 	.video-list {
-		width: 302px;
+		position: relative;
+		width: 100%;
+		max-width: 250px;
+		padding: 0 15px 0 35px;
+
+		&:before {
+			content: "▶︎";
+			position: absolute;
+			left: 15px;
+			top: -1px;
+			color: #fff;
+		}
 
 		li {
+			display: none;
 			font-size: 16px;
 			margin-bottom: 15px;
 			text-transform: uppercase;
 			font-family: $ff-source;
 			list-style: none;
 
-			&.selected a {
-				color: #fc0;
+			&.selected {
+				display: block;
+
+				a {
+					color: #fc0;
+				}
+			}
+		}
+
+		@include breakpoint(md) {
+			padding-left: 20px;
+
+			&:before {
+				left: 0;
+			}
+		}
+
+		@include breakpoint(lg) {
+			padding: 0 15px;
+
+			&:before {
+				display: none;
+			}
+
+			li {
+				display: block;
+				text-align: right;
 			}
 		}
 
@@ -61,6 +125,19 @@ body.post-type-archive-video, body.single-video {
 
 			&:hover {
 				color: #ffeb99;
+			}
+		}
+	}
+
+	&.is-expanded {
+		.video-list {
+			&:before {
+				content: "▼";
+				color: #fc0;
+			}
+
+			li {
+				display: block;
 			}
 		}
 	}

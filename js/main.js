@@ -33,14 +33,28 @@ class VideosBlock {
 	}
 
 	setup() {
-		let links = this.el.querySelectorAll('.video-list a');
-		for (let link of links) {
-			link.addEventListener('click', this.selectVideo.bind(this));
+		this.checkWidth();
+		window.addEventListener('resize', this.checkWidth.bind(this));
+		let list = this.el.querySelector('.video-list');
+		list.addEventListener('click', this.selectVideo.bind(this));
+	}
+
+	checkWidth() {
+		if (window.innerWidth < 1001) {
+			this.el.classList.add('is-mobile');
+		} else {
+			this.el.classList.remove('is-mobile');
 		}
 	}
 
 	selectVideo(e) {
 		e.preventDefault();
+		console.log('select');
+		if (this.el.classList.contains('is-mobile') &&
+		    ! this.el.classList.contains('is-expanded')) {
+			this.el.classList.add('is-expanded');
+			return;
+		}
 		let item = e.target.closest('li');
 		if (!item) {
 			return;
