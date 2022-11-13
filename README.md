@@ -17,6 +17,7 @@ WordPress artist portfolio theme
 
 1. Copy `.env.sample` to `.env` and edit the `ACF_PRO_KEY` variable ([more info](https://www.advancedcustomfields.com/pro/))
 2. Run the start script: `./bin/start`
+3. Update plugins: `docker compose exec web composer update --working-dir="/var/www/html/wp-content/themes/phragmites"`
 
 ## Production setup
 
