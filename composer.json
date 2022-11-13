@@ -27,8 +27,7 @@
   ],
   "require": {
     "composer/installers": "*",
-    "advanced-custom-fields/advanced-custom-fields-pro": "6.0.4",
-    "wpackagist-plugin/duplicate-post": "4.5.0"
+    "advanced-custom-fields/advanced-custom-fields-pro": "6.0.4"
   },
   "extra": {
     "installer-paths": {

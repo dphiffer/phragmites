@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e5c1d13ab46ee1ae84bd19ff92ce936c",
+    "content-hash": "5eb696b68946ca13f6e55feed0b28b2b",
     "packages": [
         {
             "name": "advanced-custom-fields/advanced-custom-fields-pro",
@@ -463,24 +463,6 @@
                 }
             ],
             "time": "2021-12-12T23:02:06+00:00"
-        },
-        {
-            "name": "wpackagist-plugin/duplicate-post",
-            "version": "4.5",
-            "source": {
-                "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/duplicate-post/",
-                "reference": "tags/4.5"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/duplicate-post.4.5.zip"
-            },
-            "require": {
-                "composer/installers": "^1.0 || ^2.0"
-            },
-            "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/duplicate-post/"
         }
     ],
     "packages-dev": [],
