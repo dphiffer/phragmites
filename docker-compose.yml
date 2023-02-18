@@ -14,6 +14,15 @@ services:
         define( 'WP_DEBUG_LOG', true );
         define( 'WP_DEBUG_DISPLAY', false );
       WORDPRESS_DEBUG: "true"
+      COMPOSER_AUTH: |
+        {
+          "http-basic": {
+            "connect.advancedcustomfields.com": {
+              "username": "${ACF_PRO_KEY}",
+              "password": "http://localhost:8080"
+            }
+          }
+        }
     volumes:
       - .:/var/www/html/wp-content/themes/phragmites
   db:
