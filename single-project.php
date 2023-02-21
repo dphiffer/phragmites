@@ -1,5 +1,11 @@
 <?php
 
+if (get_field('project_website')) {
+	$url = get_field('project_url');
+	header("Location: $url");
+	exit;
+}
+
 get_header();
 
 global $post;

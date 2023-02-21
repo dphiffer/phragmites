@@ -1,0 +1,83 @@
+{
+    "key": "group_607c30fdbda37",
+    "title": "Redirects",
+    "fields": [
+        {
+            "key": "field_607c3102b3801",
+            "label": "",
+            "name": "redirects",
+            "type": "repeater",
+            "instructions": "You can use <code>*<\/code> wildcard in both \"From path\" and \"Redirect to.\"",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "",
+            "min": 0,
+            "max": 0,
+            "layout": "table",
+            "button_label": "Add Redirect",
+            "sub_fields": [
+                {
+                    "key": "field_607c3114b3802",
+                    "label": "From path",
+                    "name": "from_path",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "\/frompage",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_607c3171b3803",
+                    "label": "Redirect to",
+                    "name": "redirect_to",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "https:\/\/example.com\/to-page or \/to-page",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "redirects"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "modified": 1618878131
+}

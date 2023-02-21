@@ -2,6 +2,7 @@
 
 require_once __DIR__ . '/dbug.php';
 require_once __DIR__ . '/blocks.php';
+require_once __DIR__ . '/redirects.php';
 
 class Phragmites {
 
@@ -19,6 +20,7 @@ class Phragmites {
 		$this->setup_scripts();
 		$this->setup_blocks();
 		$this->setup_image_sizes();
+		$this->setup_redirects();
 	}
 
 	function setup_theme_supports() {
@@ -155,6 +157,20 @@ class Phragmites {
 					add_image_size($name, $width, $height, $crop);
 				}
 			}
+		});
+	}
+
+	function setup_redirects() {
+		add_action('acf/init', function() {
+			acf_add_options_page([
+				'page_title' => 'Redirects',
+				'menu_title' => 'Redirects',
+				'menu_slug'  => 'redirects',
+				'position'   => '20',
+				'icon_url'   => 'dashicons-redo',
+				'capability' => 'activate_plugins'
+			]);
+			setup_redirects(); // redirects.php
 		});
 	}
 
