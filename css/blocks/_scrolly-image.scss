@@ -11,10 +11,19 @@
 	.sticky-image {
 		position: sticky;
 		top: 0;
+
+		body.admin-bar & {
+			top: 32px;
+		}
 	}
 
 	.sticky-image__inner {
 		position: relative;
+		height: 100vh;
+
+		body.admin-bar & {
+			height: calc(100vh - 32px);
+		}
 	}
 
 	.image {
@@ -28,6 +37,10 @@
 		transform: translate3d(0, 0, 0);
 		opacity: 0;
 		transition: opacity 0.3s ease-out;
+
+		body.admin-bar & {
+			height: calc(100vh - 32px);
+		}
 
 		&.is-visible {
 			opacity: 1;
@@ -50,6 +63,11 @@
 	.caption {
 		position: relative;
 		height: 100vh;
+		transform: translateY(-100vh);
+
+		&:last-child {
+			height: 50vh;
+		}
 
 		.acf-block-preview & {
 			height: 600px;

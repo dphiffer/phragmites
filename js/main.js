@@ -7,13 +7,10 @@ class ScrollyImageBlock {
 
 	setup() {
 		let scroller = scrollama();
-		let sticky = this.el.querySelector('.sticky-image__inner');
-		sticky.style.height = this.el.querySelector('.image-0').offsetHeight + 'px';
 		scroller.setup({
 			step: '.scrolly-image-block .caption'
 		}).onStepEnter((response) => {
 			let image = this.el.querySelector(`.image-${response.index}`);
-			console.log('enter', response);
 			if (image) {
 				image.classList.add('is-visible');
 			}
