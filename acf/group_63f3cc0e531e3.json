@@ -21,7 +21,7 @@
                 "green": "Green",
                 "brown": "Brown",
                 "blue": "Blue",
-                "purple": "Purple"
+                "red": "Red"
             },
             "default_value": "default",
             "return_format": "value",
