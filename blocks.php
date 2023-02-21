@@ -166,8 +166,8 @@ END;
 
 	function render_subpage($block, $content = '', $is_preview = false, $post_id = 0) {
 		global $phragmites;
-		$class = $this->get_class($block);
 		$post = get_field('subpage');
+		$class = $this->get_class($block, $post->ID);
 		$subpage_title = $post->post_title;
 		$slug = $post->post_name;
 		$site_title = get_bloginfo('name');
@@ -188,10 +188,16 @@ END;
 END;
 	}
 
-	function get_class($block) {
+	function get_class($block, $post_id = 0) {
 		$class = str_replace('acf/', '', $block['name']) . '-block';
 		if (! empty($block['className'])) {
 			$class .= " {$block['className']}";
+		}
+		if ($post_id != 0) {
+			$subpage_class = get_field('subpage_class', $post_id);
+			if (! empty($subpage_class)) {
+				$class .= " subpage--$subpage_class";
+			}
 		}
 		return $class;
 	}

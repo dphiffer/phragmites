@@ -17,7 +17,7 @@ $post_parent = empty($args['post_parent']) ? 0 : $args['post_parent'];
 $video_list = get_posts([
 	'post_type' => 'video',
 	'orderby' => 'menu_order',
-	'order' => 'ASC',
+	'order' => 'DESC',
 	'posts_per_page' => -1,
 	'post_parent' => $post_parent
 ]);

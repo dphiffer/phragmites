@@ -1,0 +1,17 @@
+@use '../layout' as *;
+
+.wp-block-columns {
+	width: calc(100vw - 30px);
+
+	@include breakpoint(lg) {
+		width: 80vw;
+	}
+
+	@include breakpoint(xl) {
+		width: 1000px;
+	}
+
+	.wp-block-image {
+		width: 100%;
+	}
+}

@@ -5,6 +5,10 @@
 	width: calc(100vw - 30px);
 	max-width: 1000px;
 
+	&.image--full-width img {
+		width: 100%;
+	}
+
 	&.alignleft,
 	&.alignright {
 		width: 50%;

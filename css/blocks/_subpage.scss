@@ -1,18 +1,95 @@
-@use '../variables' as *;
 @use '../layout' as *;
+@use '../variables' as *;
 
 .subpage-block {
 	@include section-block;
 
-	.content {
-		padding: 0 15px 30px 15px;
-		margin: 30px auto 0 auto;
-		max-width: 648px;
-		line-height: 1.5;
+	.container {
+		margin: 0 auto;
+		padding: 30px 15px;
+		max-width: 1000px;
 
 		@include breakpoint(md) {
-			padding-left: 0;
-			padding-right: 0;
+			padding: 60px 15px;
 		}
+	}
+
+	.content {
+		font-family: $ff-system;
+		font-size: 18px;
+		line-height: 30px;
+		max-width: 720px;
+	}
+}
+
+.subpage--green {
+	border-color: #717F2D;
+	background: #ecf2aa;
+
+	a,
+	.breadcrumbs h2 a {
+		color: #717F2D;
+
+		&:hover {
+			color: #000;
+		}
+	}
+
+	.breadcrumbs a:hover {
+		background: #fff;
+	}
+}
+
+.subpage--brown {
+	border-color: #6a644c;
+	background: #f2e5ae;
+
+	a,
+	.breadcrumbs h2 a {
+		color: #6a644c;
+
+		&:hover {
+			color: #000;
+		}
+	}
+
+	.breadcrumbs a:hover {
+		background: #fff;
+	}
+}
+
+.subpage--blue {
+	border-color: #407ee2;
+	background: #e1eafa;
+
+	a,
+	.breadcrumbs h2 a {
+		color: #407ee2;
+
+		&:hover {
+			color: #000;
+		}
+	}
+
+	.breadcrumbs a:hover {
+		background: #fff;
+	}
+}
+
+.subpage--purple {
+	border-color: #5c4070;
+	background: #e3cef2;
+
+	a,
+	.breadcrumbs h2 a {
+		color: #5c4070;
+
+		&:hover {
+			color: #000;
+		}
+	}
+
+	.breadcrumbs a:hover {
+		background: #fff;
 	}
 }

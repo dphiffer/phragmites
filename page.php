@@ -10,11 +10,10 @@ while ($curr->post_parent) {
 	$curr = get_post($curr->post_parent);
 	$breadcrumbs[$curr->post_title] = get_permalink($curr->ID);
 }
-$breadcrumbs['Projects'] = '/projects';
 $breadcrumbs[get_bloginfo('name')] = '/';
 
 ?>
-<section class="project-page <?php echo @$project_class; ?>">
+<section class="subpage-page subpage--<?php the_field('subpage_class'); ?>">
 	<?php echo $phragmites->get_breadcrumbs($breadcrumbs); ?>
 	<div class="container">
 		<div class="content">
