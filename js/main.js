@@ -13,11 +13,12 @@ class ScrollyImageBlock {
 			step: '.scrolly-image-block .caption'
 		}).onStepEnter((response) => {
 			let image = this.el.querySelector(`.image-${response.index}`);
+			console.log('enter', response);
 			if (image) {
 				image.classList.add('is-visible');
 			}
 		}).onStepExit((response) => {
-			let image = scrollyImage.querySelector(`.image-${response.index}`);
+			let image = this.el.querySelector(`.image-${response.index}`);
 			if (image) {
 				image.classList.remove('is-visible');
 			}

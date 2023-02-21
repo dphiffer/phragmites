@@ -1,6 +1,7 @@
 .scrolly-image-block {
 	position: relative;
 	width: 100%;
+	margin: 30px 0;
 
 	.acf-block-preview & {
 		height: 600px;
@@ -9,7 +10,7 @@
 
 	.sticky-image {
 		position: sticky;
-		padding: 20px 0;
+		top: 0;
 	}
 
 	.sticky-image__inner {
@@ -20,8 +21,8 @@
 		position: absolute;
 		top: 0;
 		left: 0;
-		width: 100%;
-		height: auto;
+		width: auto;
+		height: 100vh;
 		-webkit-transform: translate3d(0, 0, 0);
 		-moz-transform: translate3d(0, 0, 0);
 		transform: translate3d(0, 0, 0);
@@ -57,10 +58,11 @@
 
 	.caption__inner {
 		position: absolute;
-		left: 0;
-		top: 50%;
+		right: 0;
+		top: 50vh;
 		background: rgba(255, 255, 255, 0.8);
 		padding: 10px;
 		transform: translateY(-50%);
+		width: 300px;
 	}
 }
