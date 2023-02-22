@@ -1,7 +1,14 @@
+@use '../layout' as *;
+
 .scrolly-image-block {
 	position: relative;
-	width: 100%;
-	margin: 30px 0;
+	width: calc(var(--vw, 1vw) * 100);
+	margin: 15px -15px;
+
+	@include breakpoint(md) {
+		width: 100%;
+		margin: 30px 0;
+	}
 
 	.acf-block-preview & {
 		height: 600px;
@@ -12,17 +19,21 @@
 		position: sticky;
 		top: 0;
 
-		body.admin-bar & {
-			top: 32px;
+		@include breakpoint(md) {
+			body.admin-bar & {
+				top: 32px;
+			}
 		}
 	}
 
 	.sticky-image__inner {
 		position: relative;
-		height: 100vh;
+		height: calc(var(--vh, 1vh) * 100);
 
-		body.admin-bar & {
-			height: calc(100vh - 32px);
+		@include breakpoint(md) {
+			body.admin-bar & {
+				height: calc(var(--vh, 1vh) * 100 - 32px);
+			}
 		}
 	}
 
@@ -31,15 +42,17 @@
 		top: 0;
 		left: 0;
 		width: auto;
-		height: 100vh;
+		height: calc(var(--vh, 1vh) * 100);
 		-webkit-transform: translate3d(0, 0, 0);
 		-moz-transform: translate3d(0, 0, 0);
 		transform: translate3d(0, 0, 0);
 		opacity: 0;
 		transition: opacity 0.3s ease-out;
 
-		body.admin-bar & {
-			height: calc(100vh - 32px);
+		@include breakpoint(md) {
+			body.admin-bar & {
+				height: calc(var(--vh, 1vh) * 100 - 32px);
+			}
 		}
 
 		&.is-visible {
@@ -56,17 +69,27 @@
 		}
 	}
 
+	&.constrain-width {
+		background: #444;
+
+		.image {
+			width: calc(var(--vw, 1vw) * 100);
+			height: auto;
+			transform: translateY(calc(50vh - 50%));
+		}
+	}
+
 	.image-0 {
 		opacity: 1;
 	}
 
 	.caption {
 		position: relative;
-		height: 100vh;
-		transform: translateY(-100vh);
+		height: calc(var(--vh, 1vh) * 100);
+		transform: translateY(calc(var(--vh, 1vh) * -100));
 
 		&:last-child {
-			height: 50vh;
+			height: calc(var(--vh, 1vh) * 50);
 		}
 
 		.acf-block-preview & {
@@ -76,11 +99,17 @@
 
 	.caption__inner {
 		position: absolute;
-		right: 0;
-		top: 50vh;
-		background: rgba(255, 255, 255, 0.8);
+		left: 50%;
+		top: calc(var(--vh, 1vh) * 50);
+		color: #fff;
+		background: rgba(0, 0, 0, 0.8);
 		padding: 10px;
-		transform: translateY(-50%);
+		transform: translateY(-50%) translateX(-50%);
 		width: 300px;
+
+		@include breakpoint(md) {
+			right: 0;
+			transform: translateY(-50%) translateX(0);
+		}
 	}
 }

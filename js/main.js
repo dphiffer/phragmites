@@ -6,20 +6,35 @@ class ScrollyImageBlock {
 	}
 
 	setup() {
+		window.addEventListener('resize', this.resize.bind(this));
+		this.resize();
+		this.count = this.el.querySelectorAll('.image').length;
 		let scroller = scrollama();
 		scroller.setup({
 			step: '.scrolly-image-block .caption'
 		}).onStepEnter((response) => {
+			// console.log(`enter: ${response.index}`);
 			let image = this.el.querySelector(`.image-${response.index}`);
 			if (image) {
 				image.classList.add('is-visible');
 			}
 		}).onStepExit((response) => {
+			if (response.direction == 'down' &&
+			    response.index == this.count - 1) {
+				return;
+			}
 			let image = this.el.querySelector(`.image-${response.index}`);
 			if (image) {
 				image.classList.remove('is-visible');
 			}
 		});
+	}
+
+	resize() {
+		let screenWidth = document.documentElement.clientWidth;
+		if (this.el.querySelector('.image').offsetWidth > screenWidth) {
+			this.el.classList.add('constrain-width');
+		}
 	}
 }
 
@@ -90,3 +105,12 @@ window.addEventListener('DOMContentLoaded', () => {
 		}
 	}
 });
+
+function resize() {
+	let vw = document.documentElement.clientWidth / 100;
+	let vh = document.documentElement.clientHeight / 100;
+	document.documentElement.style.setProperty('--vw', `${vw}px`);
+	document.documentElement.style.setProperty('--vh', `${vh}px`);
+}
+resize();
+window.addEventListener('resize', resize);
