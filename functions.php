@@ -6,6 +6,8 @@ require_once __DIR__ . '/redirects.php';
 
 class Phragmites {
 
+	var $meta = [];
+
 	function __construct() {
 		$this->dir = get_stylesheet_directory();
 		$this->url = get_stylesheet_directory_uri();
@@ -21,6 +23,7 @@ class Phragmites {
 		$this->setup_blocks();
 		$this->setup_image_sizes();
 		$this->setup_redirects();
+		$this->setup_social_cards();
 	}
 
 	function setup_theme_supports() {
@@ -139,7 +142,9 @@ class Phragmites {
 				'large' => [1000, 0, 0],
 				'large_2x' => [2000, 0, 0],
 				'xl' => [2000, 0, 0],
-				'xl_2x' => [4000, 0, 0]
+				'xl_2x' => [4000, 0, 0],
+				'twitter' => [1200, 600, 1],
+				'facebook' => [1200, 628, 1]
 			];
 			foreach ($sizes as $name => $dimensions) {
 				list($width, $height, $crop) = $dimensions;
@@ -170,8 +175,48 @@ class Phragmites {
 				'icon_url'   => 'dashicons-redo',
 				'capability' => 'activate_plugins'
 			]);
+			acf_add_options_page([
+				'page_title' => 'Social Cards',
+				'menu_title' => 'Social Cards',
+				'menu_slug'  => 'social-cards',
+				'position'   => '30',
+				'icon_url'   => 'dashicons-share-alt2',
+				'capability' => 'activate_plugins'
+			]);
 			setup_redirects(); // redirects.php
 		});
+	}
+
+	function setup_social_cards() {
+		add_action('acf/init', [$this, 'social_card_defaults']);
+		add_action('wp_head', function() {
+			echo <<<END
+<meta property="og:type" content="website">
+<meta property="og:title" content="{$this->meta['title']}">
+<meta property="og:description" content="{$this->meta['description']}">
+<meta property="og:image" content="{$this->meta['facebook_image']}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="{$this->meta['twitter_handle']}">
+<meta name="twitter:creator" content="{$this->meta['twitter_handle']}">
+<meta name="twitter:title" content="{$this->meta['title']}">
+<meta name="twitter:image" content="{$this->meta['twitter_image']}">
+<meta name="twitter:description" content="{$this->meta['description']}">
+END;
+		});
+	}
+
+	function social_card_defaults() {
+		$this->meta['title'] = get_bloginfo('name');
+		$this->meta['description'] = get_bloginfo('description');
+		$image_id = get_field('social_card_image', 'options');
+		$this->meta['facebook_image'] = $this->image_url($image_id, 'facebook');
+		$this->meta['twitter_image'] = $this->image_url($image_id, 'twitter');
+		$this->meta['twitter_handle'] = get_field('social_card_twitter_handle', 'options');
+	}
+
+	function image_url($id, $size) {
+		list($url) = wp_get_attachment_image_src($id, $size);
+		return $url;
 	}
 
 	function enqueue_style($handle, $file, $deps = []) {
