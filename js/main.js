@@ -13,7 +13,6 @@ class ScrollyImageBlock {
 		scroller.setup({
 			step: '.scrolly-image-block .caption'
 		}).onStepEnter((response) => {
-			// console.log(`enter: ${response.index}`);
 			let image = this.el.querySelector(`.image-${response.index}`);
 			if (image) {
 				image.classList.add('is-visible');
@@ -34,6 +33,8 @@ class ScrollyImageBlock {
 		let screenWidth = document.documentElement.clientWidth;
 		if (this.el.querySelector('.image').offsetWidth > screenWidth) {
 			this.el.classList.add('constrain-width');
+		} else {
+			this.el.classList.remove('constrain-width');
 		}
 	}
 }
