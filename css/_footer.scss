@@ -1,0 +1,13 @@
+footer {
+	padding: 30px;
+	color: #aaa;
+	background: #444;
+
+	a {
+		color: #ccc;
+
+		&:hover {
+			color: #fff;
+		}
+	}
+}
