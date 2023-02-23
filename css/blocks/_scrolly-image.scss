@@ -106,7 +106,7 @@
 		position: absolute;
 		left: 50%;
 		top: calc(var(--vh, 1vh) * 50);
-		color: #fff;
+		color: #dedede;
 		background: rgba(0, 0, 0, 0.8);
 		padding: 15px;
 		transform: translateY(-50%) translateX(-50%);
@@ -114,6 +114,14 @@
 
 		p {
 			margin-top: 5px;
+		}
+
+		a {
+			color: #fff;
+
+			&:hover {
+				color: #aaa;
+			}
 		}
 
 		> *:first-child {
