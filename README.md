@@ -1,4 +1,4 @@
-# phragmites
+# 🌾 Phragmites
 
 WordPress artist portfolio theme
 
