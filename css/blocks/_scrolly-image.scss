@@ -120,6 +120,12 @@
 			margin-top: 0;
 		}
 
+		figcaption {
+			font-size: 16px;
+			line-height: 20px;
+			color: #999;
+		}
+
 		@include breakpoint(md) {
 			left: auto;
 			right: 0;
