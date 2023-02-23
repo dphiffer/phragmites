@@ -25,6 +25,7 @@ class Phragmites {
 		$this->setup_redirects();
 		$this->setup_social_cards();
 		$this->setup_caption_shortcode();
+		$this->setup_admin_projects_post_list();
 	}
 
 	function setup_theme_supports() {
@@ -217,6 +218,21 @@ END;
 				</figure>
 END;
 		}, 10, 3);
+	}
+
+	function setup_admin_projects_post_list() {
+		add_action('admin_init', function() {
+			add_action('pre_get_posts', function($query) {
+				$screen = get_current_screen();
+				if (! empty($screen) && in_array($screen->id, [
+					'edit-project',
+					'edit-video'
+				])) {
+					// List the most recent projects/videos first
+					$query->set('order', 'DESC');
+				}
+			});
+		});
 	}
 
 	function social_card_defaults() {
