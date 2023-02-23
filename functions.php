@@ -24,6 +24,7 @@ class Phragmites {
 		$this->setup_image_sizes();
 		$this->setup_redirects();
 		$this->setup_social_cards();
+		$this->setup_caption_shortcode();
 	}
 
 	function setup_theme_supports() {
@@ -34,7 +35,7 @@ class Phragmites {
 			add_theme_support('disable-custom-font-sizes');
 			add_theme_support('align-wide');
 			add_theme_support('responsive-embeds');
-			add_theme_support('html5', ['style','script',]);
+			add_theme_support('html5', ['style', 'script', 'caption']);
 		});
 	}
 
@@ -203,6 +204,19 @@ class Phragmites {
 <meta name="twitter:description" content="{$this->meta['description']}">
 END;
 		});
+	}
+
+	function setup_caption_shortcode() {
+		add_filter('img_caption_shortcode', function($output, $attr, $content) {
+			return <<<END
+				<figure class="wp-caption align{$attr['align']}">
+					$content
+					<figcaption>
+						{$attr['caption']}
+					</figcaption>
+				</figure>
+END;
+		}, 10, 3);
 	}
 
 	function social_card_defaults() {
