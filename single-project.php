@@ -11,14 +11,7 @@ while (have_posts()) {
 		exit;
 	}
 
-	$phragmites->meta['title'] = $post->post_title . ' - ' . get_bloginfo('name');
-	$excerpt = wp_trim_excerpt('', $post);
-	if (! empty($excerpt)) {
-		$phragmites->meta['description'] = $excerpt;
-	}
-	$image_id = get_post_thumbnail_id($post->ID);
-	$phragmites->meta['twitter_image'] = $phragmites->image_url($image_id, 'twitter');
-	$phragmites->meta['facebook_image'] = $phragmites->image_url($image_id, 'facebook');
+	$phragmites->set_social_card($post);
 
 	get_header();
 

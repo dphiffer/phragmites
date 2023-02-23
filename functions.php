@@ -214,6 +214,19 @@ END;
 		$this->meta['twitter_handle'] = get_field('social_card_twitter_handle', 'options');
 	}
 
+	function set_social_card($post) {
+		$this->meta['title'] = $post->post_title . ' - ' . get_bloginfo('name');
+		$excerpt = wp_trim_excerpt('', $post);
+		if (! empty($excerpt)) {
+			$this->meta['description'] = $excerpt;
+		}
+		$image_id = get_post_thumbnail_id($post->ID);
+		if ($image_id) {
+			$this->meta['twitter_image'] = $this->image_url($image_id, 'twitter');
+			$this->meta['facebook_image'] = $this->image_url($image_id, 'facebook');
+		}
+	}
+
 	function image_url($id, $size) {
 		list($url) = wp_get_attachment_image_src($id, $size);
 		return $url;
