@@ -33,7 +33,6 @@ body.post-type-archive-video, body.single-video {
 
 		@include breakpoint(lg) {
 			display: flex;
-			transform: translateX(-83px);
 			max-width: 980px;
 		}
 	}
@@ -116,7 +115,7 @@ body.post-type-archive-video, body.single-video {
 
 			li {
 				display: block;
-				text-align: right;
+				font-size: 18px;
 			}
 		}
 
