@@ -14,9 +14,7 @@ if ($headers['Accept'] == 'application/json') {
 
 while (have_posts()) {
 	the_post();
-
 	$phragmites->set_social_card($post);
-
 	get_header();
 
 	get_template_part('blocks/videos', null, [

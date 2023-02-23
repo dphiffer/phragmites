@@ -1,7 +1,5 @@
 <?php
 
-global $post, $phragmites;
-
 while (have_posts()) {
 	the_post();
 
@@ -12,7 +10,6 @@ while (have_posts()) {
 	}
 
 	$phragmites->set_social_card($post);
-
 	get_header();
 
 	$breadcrumbs = [];
@@ -35,6 +32,6 @@ while (have_posts()) {
 		</div>
 	</section>
 	<?php
-}
 
-get_footer();
+	get_footer();
+}
