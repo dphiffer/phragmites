@@ -147,7 +147,8 @@ END;
 		foreach ($image_list as $index => $item) {
 			list($image_url) = wp_get_attachment_image_src($item['image'], 'xl');
 			$images .= "<img src=\"$image_url\" class=\"image image-$index\">\n";
-			$captions .= "<div class=\"caption caption-$index\"><div class=\"caption__inner\">{$item['caption']}</div></div>\n";
+			$empty = empty($item['caption']) ? 'empty' : '';
+			$captions .= "<div class=\"caption caption-$index\"><div class=\"caption__inner$empty\">{$item['caption']}</div></div>\n";
 		}
 
 		echo <<<END
