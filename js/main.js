@@ -1,6 +1,7 @@
 class ScrollyImageBlock {
 
 	constructor(el) {
+		console.log(el);
 		this.el = el;
 		this.setup();
 	}
@@ -11,6 +12,7 @@ class ScrollyImageBlock {
 		this.count = this.el.querySelectorAll('.image').length;
 		let scroller = scrollama();
 		scroller.setup({
+			parent: this.el,
 			step: '.scrolly-image-block .caption'
 		}).onStepEnter((response) => {
 			let image = this.el.querySelector(`.image-${response.index}`);
