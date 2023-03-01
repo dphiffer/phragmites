@@ -4,10 +4,12 @@
 	position: relative;
 	width: calc(var(--vw, 1vw) * 100);
 	margin: 15px -15px;
+	background: #dedede;
 
 	@include breakpoint(md) {
 		width: 100%;
 		margin: 30px 0;
+		background: transparent;
 	}
 
 	@include breakpoint(lg) {
@@ -45,16 +47,21 @@
 		position: absolute;
 		top: 0;
 		left: 0;
-		width: auto;
-		height: calc(var(--vh, 1vh) * 100);
-		max-width: calc(var(--vw, 1vw) * 100);
-		-webkit-transform: translate3d(0, 0, 0);
-		-moz-transform: translate3d(0, 0, 0);
-		transform: translate3d(0, 0, 0);
+		width: calc(var(--vw, 1vw) * 100);
+		height: auto;
+		transform: translate3d(0, calc(var(--vh, 1vh) * 50 - 50%), 0);
+		-webkit-transform: translate3d(0, calc(var(--vh, 1vh) * 50 - 50%), 0);
+		-moz-transform: translate3d(0, calc(var(--vh, 1vh) * 50 - 50%), 0);
 		opacity: 0;
 		transition: opacity 0.3s ease-out;
 
 		@include breakpoint(md) {
+			width: auto;
+			height: calc(var(--vh, 1vh) * 100);
+			transform: translate3d(0, 0, 0);
+			-webkit-transform: translate3d(0, 0, 0);
+			-moz-transform: translate3d(0, 0, 0);
+
 			body.admin-bar & {
 				height: calc(var(--vh, 1vh) * 100 - 32px);
 			}
@@ -71,17 +78,6 @@
 			&.image-0 {
 				display: block;
 			}
-		}
-	}
-
-	&.constrain-width {
-		background: #444;
-
-		.image {
-			width: calc(var(--vw, 1vw) * 100);
-			height: auto;
-			max-height: calc(var(--vh, 1vh) * 100);
-			transform: translateY(calc(50vh - 50%));
 		}
 	}
 

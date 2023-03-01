@@ -6,8 +6,6 @@ class ScrollyImageBlock {
 	}
 
 	setup() {
-		window.addEventListener('resize', lodash.debounce(this.resize.bind(this), 200));
-		this.resize();
 		this.count = this.el.querySelectorAll('.image').length;
 		let scroller = scrollama();
 		scroller.setup({
@@ -46,15 +44,6 @@ class ScrollyImageBlock {
 			return false;
 		}
 		return currImg.getAttribute('src') == nextImg.getAttribute('src');
-	}
-
-	resize() {
-		let screenWidth = document.documentElement.clientWidth;
-		if (this.el.querySelector('.image').offsetWidth > screenWidth) {
-			this.el.classList.add('constrain-width');
-		} else {
-			this.el.classList.remove('constrain-width');
-		}
 	}
 }
 
