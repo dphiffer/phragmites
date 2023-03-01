@@ -6,7 +6,7 @@ class ScrollyImageBlock {
 	}
 
 	setup() {
-		window.addEventListener('resize', this.resize.bind(this));
+		window.addEventListener('resize', _.debounce(this.resize.bind(this), 200));
 		this.resize();
 		this.count = this.el.querySelectorAll('.image').length;
 		let scroller = scrollama();
@@ -67,7 +67,7 @@ class VideosBlock {
 
 	setup() {
 		this.checkWidth();
-		window.addEventListener('resize', this.checkWidth.bind(this));
+		window.addEventListener('resize', _.debounce(this.checkWidth.bind(this), 200));
 		let list = this.el.querySelector('.video-list');
 		list.addEventListener('click', this.selectVideo.bind(this));
 	}

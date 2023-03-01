@@ -125,7 +125,8 @@ class Phragmites {
 	function setup_scripts() {
 		add_action('wp_enqueue_scripts', function() {
 			$this->enqueue_script('scrollama', 'dist/scrollama.min.js');
-			$this->enqueue_script('main', 'js/main.js', ['scrollama']);
+			$this->enqueue_script('lodash', 'dist/lodash.min.js');
+			$this->enqueue_script('main', 'js/main.js', ['scrollama', 'lodash']);
 		});
 	}
 
