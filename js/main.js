@@ -1,7 +1,6 @@
 class ScrollyImageBlock {
 
 	constructor(el) {
-		console.log(el);
 		this.el = el;
 		this.setup();
 	}
@@ -22,13 +21,31 @@ class ScrollyImageBlock {
 		}).onStepExit((response) => {
 			if (response.direction == 'down' &&
 			    response.index == this.count - 1) {
+				// When scrolling out of the last item, just leave it as-is
 				return;
 			}
 			let image = this.el.querySelector(`.image-${response.index}`);
 			if (image) {
-				image.classList.remove('is-visible');
+				if (this.hasSameImage(response)) {
+					setTimeout(() => {
+						image.classList.remove('is-visible');
+					}, 500);
+				} else {
+					image.classList.remove('is-visible');
+				}
 			}
 		});
+	}
+
+	hasSameImage(response) {
+		let currIndex = response.index;
+		let currImg = this.el.querySelector(`.image-${currIndex}`);
+		let nextIndex = (response.direction == 'down') ? currIndex + 1 : currIndex - 1;
+		let nextImg = this.el.querySelector(`.image-${nextIndex}`);
+		if (! currImg || ! nextImg) {
+			return false;
+		}
+		return currImg.getAttribute('src') == nextImg.getAttribute('src');
 	}
 
 	resize() {
