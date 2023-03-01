@@ -7,6 +7,7 @@
     "dist:mkdir": "mkdir -p dist",
     "dist:source-sans": "cp -r node_modules/source-sans dist/",
     "dist:scrollama": "cp node_modules/scrollama/build/scrollama.min.js dist/",
+    "dist:lodash": "cp node_modules/lodash/lodash.min.js dist/",
     "sass:build": "sass css/main.scss:dist/main.css css/blocks.scss:dist/blocks.css",
     "sass:watch": "sass --watch css:dist",
     "start": "npm-run-all build sass:watch",
@@ -32,6 +33,7 @@
     "sass": "^1.54.5"
   },
   "dependencies": {
+    "lodash": "^4.17.21",
     "scrollama": "^3.2.0",
     "source-sans": "^3.46.0"
   }
