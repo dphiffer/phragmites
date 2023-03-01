@@ -109,9 +109,8 @@
 		color: #dedede;
 		background: rgba(0, 0, 0, 0.8);
 		padding: 15px;
-		transform: translateY(-50%) translateX(-50%);
+		transform: translateY(-50%) translateX(-50%) translateZ(1px);
 		width: 300px;
-		z-index: 1;
 
 		&.empty {
 			visibility: hidden;
