@@ -4,14 +4,14 @@ WordPress artist portfolio theme
 
 ## Dependencies
 
-- [WordPress](https://wordpress.org/)
-- [Advanced Custom Fields Pro](https://www.advancedcustomfields.com/) plugin
+-   [WordPress](https://wordpress.org/)
+-   [Advanced Custom Fields Pro](https://www.advancedcustomfields.com/) plugin
 
 ## Development dependencies
 
-- [Docker Desktop](https://www.docker.com/products/docker-desktop/)
-- [node.js](https://nodejs.org/en/) (tested on v18)
-- [Composer](https://getcomposer.org/)
+-   [Docker Desktop](https://www.docker.com/products/docker-desktop/)
+-   [node.js](https://nodejs.org/en/) (tested on v20)
+-   [Composer](https://getcomposer.org/)
 
 ## Dev environment setup
 
@@ -32,6 +32,6 @@ npm run build
 
 Image sizes are configured automatically.
 
-- Thumbnail: 285x176 (cropped)
-- Medium: 720x0
-- Large: 1000x0
+-   Thumbnail: 285x176 (cropped)
+-   Medium: 720x0
+-   Large: 1000x0
