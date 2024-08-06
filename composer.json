@@ -1,32 +1,32 @@
 {
-  "name": "dphiffer/phragmites",
-  "description": "Artist portfolio WordPress theme",
-  "version": "0.0.2",
-  "type": "wordpress-theme",
-  "repositories": [
-    {
-      "type": "composer",
-      "url": "https://wpackagist.org"
-    },
-    {
-        "type": "composer",
-        "url": "https://connect.advancedcustomfields.com"
-    }
-  ],
-  "require": {
-    "wpengine/advanced-custom-fields-pro": "6.0.7"
-  },
-  "extra": {
-    "installer-paths": {
-      "../../plugins/{$name}/": [
-        "type:wordpress-plugin"
-      ]
-    }
-  },
-  "config": {
-    "allow-plugins": {
-      "composer/installers": true,
-      "dphiffer/acf-pro-installer": true
-    }
-  }
+	"name": "dphiffer/phragmites",
+	"description": "Artist portfolio WordPress theme",
+	"version": "0.0.2",
+	"type": "wordpress-theme",
+	"repositories": [
+		{
+			"type": "composer",
+			"url": "https://wpackagist.org"
+		},
+		{
+			"type": "composer",
+			"url": "https://connect.advancedcustomfields.com"
+		}
+	],
+	"require": {
+		"wpengine/advanced-custom-fields-pro": "^6.3"
+	},
+	"extra": {
+		"installer-paths": {
+			"../../plugins/{$name}/": [
+				"type:wordpress-plugin"
+			]
+		}
+	},
+	"config": {
+		"allow-plugins": {
+			"composer/installers": true,
+			"dphiffer/acf-pro-installer": true
+		}
+	}
 }
