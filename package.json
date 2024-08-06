@@ -1,40 +1,40 @@
 {
-  "name": "phragmites",
-  "version": "0.0.1",
-  "description": "WordPress artist portfolio theme",
-  "main": "index.js",
-  "scripts": {
-    "dist:mkdir": "mkdir -p dist",
-    "dist:source-sans": "cp -r node_modules/source-sans dist/",
-    "dist:scrollama": "cp node_modules/scrollama/build/scrollama.min.js dist/",
-    "dist:lodash": "cp node_modules/lodash/lodash.min.js dist/",
-    "sass:build": "sass css/main.scss:dist/main.css css/blocks.scss:dist/blocks.css",
-    "sass:watch": "sass --watch css:dist",
-    "start": "npm-run-all build sass:watch",
-    "build": "npm-run-all dist:* sass:build"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/dphiffer/phragmites.git"
-  },
-  "keywords": [
-    "wordpress",
-    "theme",
-    "portfolio"
-  ],
-  "author": "Dan Phiffer <dan@phiffer.org>",
-  "license": "GPLv3",
-  "bugs": {
-    "url": "https://github.com/dphiffer/phragmites/issues"
-  },
-  "homepage": "https://github.com/dphiffer/phragmites#readme",
-  "devDependencies": {
-    "npm-run-all": "^4.1.5",
-    "sass": "^1.54.5"
-  },
-  "dependencies": {
-    "lodash": "^4.17.21",
-    "scrollama": "^3.2.0",
-    "source-sans": "^3.46.0"
-  }
+	"name": "phragmites",
+	"version": "0.0.2",
+	"description": "WordPress artist portfolio theme",
+	"main": "index.js",
+	"scripts": {
+		"dist:mkdir": "mkdir -p dist",
+		"dist:source-sans": "cp -r node_modules/source-sans dist/",
+		"dist:scrollama": "cp node_modules/scrollama/build/scrollama.min.js dist/",
+		"dist:lodash": "cp node_modules/lodash/lodash.min.js dist/",
+		"sass:build": "sass css/main.scss:dist/main.css css/blocks.scss:dist/blocks.css",
+		"sass:watch": "sass --watch css:dist",
+		"start": "npm-run-all build sass:watch",
+		"build": "npm-run-all dist:* sass:build"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/dphiffer/phragmites.git"
+	},
+	"keywords": [
+		"wordpress",
+		"theme",
+		"portfolio"
+	],
+	"author": "Dan Phiffer <dan@phiffer.org>",
+	"license": "GPLv3",
+	"bugs": {
+		"url": "https://github.com/dphiffer/phragmites/issues"
+	},
+	"homepage": "https://github.com/dphiffer/phragmites#readme",
+	"devDependencies": {
+		"npm-run-all": "^4.1.5",
+		"sass": "^1.77.8"
+	},
+	"dependencies": {
+		"lodash": "^4.17.21",
+		"scrollama": "^3.2.0",
+		"source-sans": "^3.46.0"
+	}
 }
