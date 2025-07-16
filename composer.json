@@ -1,20 +1,16 @@
 {
 	"name": "dphiffer/phragmites",
 	"description": "Artist portfolio WordPress theme",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"type": "wordpress-theme",
 	"repositories": [
-		{
-			"type": "composer",
-			"url": "https://wpackagist.org"
-		},
 		{
 			"type": "composer",
 			"url": "https://connect.advancedcustomfields.com"
 		}
 	],
 	"require": {
-		"wpengine/advanced-custom-fields-pro": "^6.3"
+		"wpengine/advanced-custom-fields-pro": "^6.4"
 	},
 	"extra": {
 		"installer-paths": {
@@ -25,8 +21,8 @@
 	},
 	"config": {
 		"allow-plugins": {
-			"composer/installers": true,
-			"dphiffer/acf-pro-installer": true
-		}
+			"composer/installers": true
+		},
+		"process-timeout": 0
 	}
 }
