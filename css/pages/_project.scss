@@ -1,8 +1,8 @@
 @use '../variables' as *;
 
 .project-page {
-	@include section-block;
 	background-color: #fff;
+	@include section-block;
 
 	.container {
 		margin: 0 auto;

@@ -6,9 +6,10 @@ body.post-type-archive-video, body.single-video {
 }
 
 .videos-block {
-	@include section-block;
 	border-color: #fc0;
 	background-color: #222;
+
+	@include section-block;
 
 	a,
 	.breadcrumbs h2 a {
