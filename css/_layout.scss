@@ -1,7 +1,9 @@
 @use 'variables' as *;
 
 @mixin full-height {
-	min-height: calc(100vh - 3px);
+	& {
+		min-height: calc(100vh - 3px);
+	}
 
 	body.admin-bar & {
 		min-height: calc(100vh - 32px);
