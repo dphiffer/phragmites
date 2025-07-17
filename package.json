@@ -1,6 +1,6 @@
 {
 	"name": "phragmites",
-	"version": "0.0.3",
+	"version": "0.0.4",
 	"description": "WordPress artist portfolio theme",
 	"main": "index.js",
 	"scripts": {
