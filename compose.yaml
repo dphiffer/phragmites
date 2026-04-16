@@ -28,7 +28,6 @@ services:
     image: mariadb:10.5.8
     ports:
       - 3306:3306
-    restart: always
     environment:
       MYSQL_DATABASE: wordpress
       MYSQL_USER: wordpress
