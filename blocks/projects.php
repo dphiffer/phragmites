@@ -33,13 +33,17 @@ foreach ($project_list as $project) {
 	if (! empty($time_span)) {
 		$time_span = "($time_span)";
 	}
+	$short_description = get_field('short_description', $project);
+	if (! empty($short_description)) {
+		$short_description = "<i>$short_description</i>";
+	}
 	$image_src = get_the_post_thumbnail_url($project, 'thumbnail_2x');
 	$projects .= <<<END
 		<li>
 			<figure>
 				<a href="$url"><img src="$image_src" alt="$project->post_title"></a>
 				<figcaption>
-					<a href="$url">$project->post_title</a> $time_span
+					<a href="$url">$project->post_title</a> $short_description $time_span
 				</figcaption>
 			</figure>
 		</li>
