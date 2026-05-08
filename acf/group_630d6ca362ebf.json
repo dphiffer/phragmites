@@ -6,6 +6,7 @@
             "key": "field_630d6f22e24e5",
             "label": "Time span",
             "name": "time_span",
+            "aria-label": "",
             "type": "text",
             "instructions": "Displayed in parentheses after the project title.",
             "required": 0,
@@ -22,9 +23,31 @@
             "append": ""
         },
         {
+            "key": "field_69fd3159cd2ec",
+            "label": "Short description",
+            "name": "short_description",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Displayed in italics after the project title.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_630d6ca440932",
             "label": "Project Website",
             "name": "project_website",
+            "aria-label": "",
             "type": "true_false",
             "instructions": "Link the thumbnail image directly to the existing website.",
             "required": 0,
@@ -44,6 +67,7 @@
             "key": "field_630d6d1d40933",
             "label": "Project URL",
             "name": "project_url",
+            "aria-label": "",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -86,5 +110,8 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1662432530
+    "display_title": "",
+    "allow_ai_access": false,
+    "ai_description": "",
+    "modified": 1778201359
 }
