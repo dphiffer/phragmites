@@ -149,6 +149,10 @@ class Phragmites {
 				'twitter' => [1200, 600, 1],
 				'facebook' => [1200, 628, 1]
 			];
+			if (defined('PHRAGMITES_THUMBNAIL_RATIO') && is_numeric(PHRAGMITES_THUMBNAIL_RATIO)) {
+				$sizes['thumbnail'][1] = $sizes['thumbnail'][0] / PHRAGMITES_THUMBNAIL_RATIO;
+				$sizes['thumbnail_2x'][1] = $sizes['thumbnail_2x'][0] / PHRAGMITES_THUMBNAIL_RATIO;
+			}
 			foreach ($sizes as $name => $dimensions) {
 				list($width, $height, $crop) = $dimensions;
 				if (in_array($name, $base_sizes)) {
